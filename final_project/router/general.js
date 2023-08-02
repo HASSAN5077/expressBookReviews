@@ -90,7 +90,7 @@ public_users.get("/title/:title", function (req, res) {
 public_users.get("/review/:isbn", function (req, res) {
   //Write your code here
   let reviews = books[req.params.isbn].reviews
-  return res.status(300).json(reviews);
+  return res.status(200).json(reviews);
 });
 
 module.exports.general = public_users;

@@ -60,12 +60,11 @@ regd_users.put("/auth/review/:isbn", (req, res) => {
   //Write your code here
   let user = req.session.authorization['username']
   books[req.params.isbn].reviews.user = req.query.review
-  return res.status(300).json(`The review for the book with ISBN ${req.params.isbn} has been Added/Modify `);
+  return res.status(200).json(`The review for the book with ISBN ${req.params.isbn} has been Added/Modify `);
 });
 regd_users.delete("/auth/review/:isbn", (req, res) => {
   //Write your code here
   let user = req.session.authorization['username']
-  console.log(user)
   if(isValid(user)){
     delete books[req.params.isbn].reviews.user
     return res.status(200).json(`The review for the book with ISBN ${req.params.isbn} posted by user ${user} has been deleted`);
